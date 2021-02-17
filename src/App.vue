@@ -1,28 +1,70 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container" id="app">
+    <div class="row">
+      <div class="two columns"></div>
+      <div class="eight columns">
+        <h1>Vue CSV</h1>
+        <form @submit.prevent="onSubmit">
+          <!--          :map-fields="['name', 'age']"-->
+          <vue-csv-import
+              :headers="['Name', 'Age']"
+              :map-fields="{name: 'Name', age: 'Age'}"
+              tableClass="u-full-width"
+              v-model="csv"
+          >
+
+            <template slot="next" slot-scope="{ load }">
+              <div class="d-flex justify-content-end">
+                <button
+                    @click.prevent="load"
+                    v-if="!csv.length > 0"
+                >Load File
+                </button
+                >
+              </div>
+            </template>
+          </vue-csv-import>
+          <table class="u-full-width">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr :key="index" v-for="(person, index) in csv">
+              <td>{{ person.name }}</td>
+              <td>{{ person.age }}</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button type="submit">Submit CSV</button>
+        </form>
+
+        <pre><code>{{ csv }}</code></pre>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import {VueCsvImport} from 'vue-csv-import'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            VueCsvImport
+        },
+
+        data: () => ({
+            csv: []
+        }),
+
+        methods: {
+            onSubmit() {
+                alert(`Data entered: ${JSON.stringify(this.csv)}`)
+            }
+        }
+    }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
