@@ -4,12 +4,19 @@
       <div class="two columns"></div>
       <div class="eight columns">
         <h1>Vue CSV</h1>
+
+        <h2>Example Template</h2>
+        <p>You can download <a href="/example.csv">this template</a> for your convenience.</p>
         <form @submit.prevent="onSubmit">
           <!--          :map-fields="['name', 'age']"-->
           <vue-csv-import
               :headers="['Name', 'Age']"
               :map-fields="{name: 'Name', age: 'Age'}"
-              tableClass="u-full-width"
+              :can-ignore="false"
+              :file-mime-types="['text/csv']"
+              auto-match-fields
+              auto-match-ignore-case
+              table-class="u-full-width"
               v-model="csv"
           >
 
