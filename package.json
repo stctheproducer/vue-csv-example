@@ -40,7 +40,5 @@
     "last 2 versions",
     "not dead"
   ],
-  "peerDependencies": {
-    "vue-csv-import": "3.3.5"
-  }
+  "peerDependencies": {}
 }

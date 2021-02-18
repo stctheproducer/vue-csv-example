@@ -1,0 +1,5 @@
+Vehicle Make,Vehicle Model,Year Of Make,Registration Number,Engine Number,Chassis Number,Color,Cubic Capacity,Seating Capacity,Body Type,Certificate Number,Vehicle Class
+Toyota,Corolla,2003,ABC123ZM,engine-number-100,chassis-number-100,White,1500,5,SEDAN,15001,Private
+Toyota,Hilux,2012,ABC124ZM,engine-number-101,chassis-number-101,Pearl,2700,5,VAN,15002,Commercial
+Nissan,X-Trail,2005,ABC125ZM,engine-number-102,chassis-number-102,Red,1834,5,SUV,15003,Private
+Toyota,Hiace,1998,ABC126ZM,engine-number-103,chassis-number-103,Black,2300,15,BUS,15004,Bus / Taxi
