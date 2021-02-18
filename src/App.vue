@@ -5,7 +5,7 @@
     <div class="row">
       <div class="two columns"></div>
       <div class="eight columns">
-        <h1>Vue CSV</h1>
+        <h1>Vehicle Fleet Upload</h1>
 
         <h2>Example Template</h2>
         <p>
